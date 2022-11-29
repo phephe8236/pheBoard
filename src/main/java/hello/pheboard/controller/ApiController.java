@@ -11,6 +11,6 @@ public class ApiController {
 
     @GetMapping("/name")
     public String name() {
-        return "박형은";
+        return "park";
     }
 }
