@@ -13,4 +13,9 @@ public class WebController {
         model.addAttribute("img", "image/foxdo.png");
         return "hello";
     }
+
+    @GetMapping("/")
+    public String index() {
+        return "home";
+    }
 }
