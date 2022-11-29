@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pheboard?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: test
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: create #create :????? ?????? ??? ???? ???? ?? ??
+    properties:
+      hibernate:
+        format_sql: true
