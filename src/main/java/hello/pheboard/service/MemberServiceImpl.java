@@ -2,6 +2,7 @@ package hello.pheboard.service;
 
 import hello.pheboard.domain.Member;
 import hello.pheboard.domain.MemberRole;
+import hello.pheboard.dto.LoginDTO;
 import hello.pheboard.dto.SignUpFormDto;
 import hello.pheboard.repository.MemberRepository;
 import hello.pheboard.service.interfaces.MemberService;
@@ -37,6 +38,23 @@ public class MemberServiceImpl implements MemberService {
             return new ResponseEntity("success", HttpStatus.OK);
         } else {
             return new ResponseEntity("fail", HttpStatus.OK);
+        }
+    }
+
+    @Override
+    public ResponseEntity login(LoginDTO loginDTO) {
+
+        Optional<Member> member = memberRepository.findById(loginDTO.getId());
+        Member memberEntity = member.orElse(null);
+
+        if (member == null) {
+            return new ResponseEntity("사용 가능한 아이디 입니다.", HttpStatus.OK);
+        }
+
+        if (memberEntity.getPassword().equals(loginDTO.getPassword())) {
+            return new ResponseEntity("success", HttpStatus.OK);
+        }else {
+            return new ResponseEntity(" 비밀번호가 일치하지 않습니다.", HttpStatus.OK);
         }
     }
 }

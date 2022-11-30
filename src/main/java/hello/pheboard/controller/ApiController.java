@@ -1,5 +1,6 @@
 package hello.pheboard.controller;
 
+import hello.pheboard.dto.LoginDTO;
 import hello.pheboard.dto.SignUpFormDto;
 import hello.pheboard.service.interfaces.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +19,14 @@ public class ApiController {
     public ResponseEntity userSignup(@RequestBody SignUpFormDto formDTO) {
         return memberService.signup(formDTO);
     }
+    //@RequestBody : HTTP 요청의 body(JSON이나 XML 등)를 자바 객체로 변환시켜줌
 
-    /*
-        @RequestBody : HTTP 요청의 body(JSON이나 XML 등)를 자바 객체로 변환시켜줌
-     */
-    
+    @PostMapping("/login")
+    public ResponseEntity login(@RequestBody LoginDTO loginDTO) {
+        return memberService.login(loginDTO);
+    }
+
+    //test
     @GetMapping("/name")
     public String name() {
         return "park";

@@ -20,11 +20,16 @@ public class WebController {
     }
 
     /**
-     * 회원가입
+     * 회원가입, 로그인, 로그아웃
      */
     @GetMapping("/signup")
     public String signup() {
         return "signup";
+    }
+
+    @GetMapping("/signin")
+    public String signin() {
+        return "signin";
     }
 
 }
