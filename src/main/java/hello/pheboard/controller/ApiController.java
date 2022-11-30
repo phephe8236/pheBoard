@@ -1,7 +1,9 @@
 package hello.pheboard.controller;
 
 import hello.pheboard.dto.LoginDTO;
+import hello.pheboard.dto.PostFormDTO;
 import hello.pheboard.dto.SignUpFormDto;
+import hello.pheboard.service.interfaces.BoardService;
 import hello.pheboard.service.interfaces.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class ApiController {
 
     private final MemberService memberService;
+    private final BoardService boardService;
 
     @PostMapping("/signup")
     public ResponseEntity userSignup(@RequestBody SignUpFormDto formDTO) {
@@ -24,6 +27,12 @@ public class ApiController {
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginDTO loginDTO) {
         return memberService.login(loginDTO);
+    }
+
+    @PostMapping("/posts")
+    public ResponseEntity save(@RequestBody PostFormDTO formDTO) {
+        ResponseEntity responseEntity = boardService.save(formDTO);
+        return responseEntity;
     }
 
     //test

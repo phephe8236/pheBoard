@@ -32,4 +32,11 @@ public class WebController {
         return "signin";
     }
 
+    /**
+     * 게시글 등록
+     */
+    @GetMapping("/new")
+    public String newPost() {
+        return "new";
+    }
 }
