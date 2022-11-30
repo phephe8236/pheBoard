@@ -18,4 +18,13 @@ public class WebController {
     public String index() {
         return "home";
     }
+
+    /**
+     * 회원가입
+     */
+    @GetMapping("/signup")
+    public String signup() {
+        return "signup";
+    }
+
 }
