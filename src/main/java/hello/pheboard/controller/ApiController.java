@@ -35,6 +35,12 @@ public class ApiController {
         return responseEntity;
     }
 
+    @DeleteMapping("/posts/{id}")
+    public ResponseEntity remove(@PathVariable Long id) {
+        ResponseEntity responseEntity = boardService.remove(id);
+        return responseEntity;
+    }
+
     //test
     @GetMapping("/name")
     public String name() {

@@ -47,4 +47,12 @@ public class Board {
      */
     @JoinColumn(name = "member_id", nullable = false) // @joincolumn 외래키를 매핑할 때 사용
     private Member member;
+
+    public void countAdmin() {
+        this.adminViews++;
+    }
+
+    public void countUser() {
+        this.userViews++;
+    }
 }
